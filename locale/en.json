@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Workspace & Session Tools",
-    "description": "Provides workspace_manage and session_title tools so agents can organize DeepSeek Harness sidebar workspaces and session titles directly through chat."
+    "title": "Workspace and session tools",
+    "description": "Registers workspace_manage and session_title so agents can list, create, rename, reorder, and unregister sidebar workspaces and read, rename, or refresh live session titles through chat. Unregistering a workspace keeps files and session logs on disk; disabling the plugin removes both tools."
   }
 }

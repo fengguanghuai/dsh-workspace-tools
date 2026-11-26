@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "工作区与会话工具",
-    "description": "提供 workspace_manage 与 session_title 两个工具，让 Agent 通过对话直接管理 DeepSeek Harness 左侧栏工作区与会话标题。"
+    "description": "注册 workspace_manage 与 session_title 两个工具，让 Agent 通过对话列出、新增、重命名、排序和移除左侧栏工作区，以及读取、重命名或刷新活跃会话标题。移除工作区仅取消侧边栏注册，不删除磁盘文件与会话日志；禁用插件后这两个工具将不可用。"
   }
 }
