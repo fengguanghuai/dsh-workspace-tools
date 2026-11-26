@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "工作区与会话工具",
+    "description": "提供 workspace_manage 与 session_title 两个工具，让 Agent 通过对话直接管理 DeepSeek Harness 左侧栏工作区与会话标题。"
+  }
+}

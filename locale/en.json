@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Workspace & Session Tools",
+    "description": "Provides workspace_manage and session_title tools so agents can organize DeepSeek Harness sidebar workspaces and session titles directly through chat."
+  }
+}

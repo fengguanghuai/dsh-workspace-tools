@@ -1,0 +1,38 @@
+{
+  "name": "@fengguanghuai/dsh-workspace-tools",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness agent tools for managing sidebar workspaces and session titles directly through chat.",
+  "license": "MIT",
+  "author": "fengguanghuai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fengguanghuai/dsh-workspace-tools.git"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-bundle",
+    "workspace",
+    "session-title",
+    "agent-tools"
+  ],
+  "type": "module",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon.svg": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

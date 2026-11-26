@@ -1,0 +1,4 @@
+- insert:
+    - id: dsh-workspace-tools
+      name: '@fengguanghuai/dsh-workspace-tools'
+      config: {}
