@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "Workspace and session tools",
-    "description": "Registers workspace_manage and session_title so agents can list, create, rename, reorder, and unregister sidebar workspaces and read, rename, or refresh live session titles through chat. Unregistering a workspace keeps files and session logs on disk; disabling the plugin removes both tools."
+    "description": "Adds a toggleable sidebar enhancement suite (cross-workspace top Pinned section, pinned workspaces with inline expand, inline search, drag reorder, Workspaces header quick actions, status highlights, 7-color macOS labels, workspace recency sort, and auto-folding older history) alongside workspace_manage and session_title agent tools."
   }
 }

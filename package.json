@@ -1,7 +1,7 @@
 {
   "name": "@fengguanghuai/dsh-workspace-tools",
-  "version": "0.1.0",
-  "description": "DeepSeek Harness agent tools for managing sidebar workspaces and session titles directly through chat.",
+  "version": "0.2.0",
+  "description": "DeepSeek Harness workspace & sidebar suite: global pinned sessions/workspaces, header quick actions, 7-color labels, recency sort, auto-fold old history, and agent tools.",
   "license": "MIT",
   "author": "fengguanghuai",
   "homepage": "https://github.com/fengguanghuai/dsh-workspace-tools#readme",
@@ -32,6 +32,7 @@
   "icon": "./icon.svg",
   "exports": {
     ".": "./index.js",
+    "./client": "./client.js",
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json",
     "./locale/*.json": "./locale/*.json",
@@ -39,15 +40,31 @@
   },
   "files": [
     "index.js",
+    "client.js",
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
+    "assets/icon-180.png",
     "README.md",
     "LICENSE"
   ],
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-workspace-controller",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-context-menu",
+        "@deepseek-ai/dsh-client-ui-renderer"
+      ]
     }
   }
 }

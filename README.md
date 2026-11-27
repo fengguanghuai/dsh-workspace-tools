@@ -4,14 +4,30 @@
 
 # dsh-workspace-tools
 
+[![npm](https://img.shields.io/npm/v/@fengguanghuai/dsh-workspace-tools)](https://www.npmjs.com/package/@fengguanghuai/dsh-workspace-tools)
 [![License: MIT](https://img.shields.io/github/license/fengguanghuai/dsh-workspace-tools)](./LICENSE)
 [![Release](https://img.shields.io/github/v/release/fengguanghuai/dsh-workspace-tools)](https://github.com/fengguanghuai/dsh-workspace-tools/releases)
 
-A DeepSeek Harness (DSH) Host plugin bundle that exposes two agent tools — `workspace_manage` and `session_title` — so agents can organize sidebar workspaces and session titles directly through chat.
+A DeepSeek Harness (DSH) Host + Web UI plugin bundle that combines a **toggleable left-sidebar organization & global pinning suite** with two agent tools (`workspace_manage` and `session_title`).
 
-让 DeepSeek Harness 的 Agent 通过自然语言直接管理左侧栏工作区与会话标题，无需手动点击侧边栏。
+集成了**可独立开关的左侧栏置顶与工作区整理增强套件**，以及让 Agent 通过自然语言管理工作区与会话标题的 `workspace_manage`、`session_title` 两个工具。
 
-## Tools Included / 包含工具
+## Sidebar & Pin Enhancements / 左侧栏增强（均可独立开关）
+
+Click the sliders icon on the **Pinned** (or **Workspaces**) header to open the settings modal and toggle any feature independently:
+
+1. **Global Pinned Section / 顶部跨工作区置顶汇总区** — Aggregates native DSH pinned sessions (`pinnedSessionIds`) above **Workspaces** with source workspace pills, hover unpin, and optional deduplication (hides pinned sessions in the workspace list below by default).
+2. **Pinned Workspaces & Inline Expand / 工作区置顶与就地展开** — Right-click any workspace to pin it to the top section and expand its sessions inline.
+3. **Workspaces Header Quick Actions / 工作区标题栏快捷按钮** — Adds **Locate current session**, **Collapse all**, and **Expand all** buttons directly to the Workspaces header.
+4. **Status Highlights / 运行中、未读与待处理状态高亮** — Syncs live Host status indicators: blue pulsing (running), amber (waiting for approval/answer), and green (completed unread).
+5. **Inline Search in Pinned Section / 置顶区就地搜索** — Filter pinned sessions and workspaces by title or workspace name (`Esc` to close).
+6. **macOS-style 7-Color Labels / macOS 风格 7 色标签** — Right-click any session to assign one of 7 soft row tints (synced across both the Pinned section and native workspace list).
+7. **Workspace Recency Sort & Auto-Fold History / 工作区按最近活跃排序 + 超期历史自动折叠** — Floats recently active workspaces to the top via non-invasive CSS flex order, and folds idle sessions older than N days (`1 / 3 / 7 / 14 / 30d`, keeping pinned/active/running/unread visible).
+8. **Drag-to-Reorder Pinned Sessions / 置顶行拖拽排序** — Drag pinned session rows in the top section to customize their order.
+
+> Non-invasive by design: reuses DSH's native `sidebar.workspaces` browser, native pinning, and native right-click context menu API instead of replacing the built-in sidebar.
+
+## Agent Tools Included / 包含 Agent 工具
 
 ### 1. `workspace_manage`
 
@@ -39,37 +55,22 @@ Pass optional `sessionId` to target another live session; omit it to act on the 
 
 ## Installation / 安装方式
 
-### From GitHub (CLI) / 通过命令行从 GitHub 安装
-
 ```sh
+# From npm
+dsh plugin --profile web add @fengguanghuai/dsh-workspace-tools
+
+# Or from GitHub
 dsh plugin --profile web add github:fengguanghuai/dsh-workspace-tools
 ```
 
-> Replace `web` with your actual profile name if you use a custom profile.
-
-### In DSH Desktop / 在桌面端安装
-
-Open **Plugins → Add plugin**, enter `github:fengguanghuai/dsh-workspace-tools` (or the local cloned directory path), click **Install**, and enable the bundle.
-
-### From a Release tarball / 从 Release 预打包文件安装
-
-```sh
-dsh plugin --profile web add https://github.com/fengguanghuai/dsh-workspace-tools/releases/download/v0.1.0/fengguanghuai-dsh-workspace-tools-0.1.0.tgz
-```
-
-## Usage Examples / 使用示例
-
-- 「把 `/path/to/my-project` 加到左侧工作区，改名叫“核心服务”，并放到最上面」
-- 「列出我当前所有的工作区顺序」
-- 「帮我把当前会话标题改成 `📂 排查订单超时问题`」
-- 「根据刚才的聊天内容重新生成一下会话标题」
+Or in DSH Desktop: **Plugins → Add plugin** → enter `@fengguanghuai/dsh-workspace-tools` (or `github:fengguanghuai/dsh-workspace-tools`) → **Install** and enable.
 
 ## Compatibility & Limitations / 兼容性与说明
 
-- Requires DeepSeek Harness `>=0.2.0` (uses Host `tools`, `workspaceRegistry`, `sessionTitle`, and `sessions` services).
+- Requires DeepSeek Harness `>=0.2.0` (`0.2.2-rc.5` verified).
 - Zero external runtime dependencies; no build step required.
-- `workspace_manage` (`delete`) only unregisters the workspace from the sidebar and never deletes files or session history on disk.
-- Disabling the bundle removes `workspace_manage` and `session_title` from agent sessions.
+- Preferences, pinned workspaces, custom pin order, and color labels are persisted locally in `localStorage` (`dsh-workspace-tools:prefs:v1`).
+- Disabling the bundle cleanly removes all sidebar UI enhancements, context menu entries, and agent tools.
 
 ## License
 
