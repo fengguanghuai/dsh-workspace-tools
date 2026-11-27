@@ -12,6 +12,12 @@ A DeepSeek Harness (DSH) Host + Web UI plugin bundle that combines a **toggleabl
 
 集成了**可独立开关的左侧栏置顶与工作区整理增强套件**，以及让 Agent 通过自然语言管理工作区与会话标题的 `workspace_manage`、`session_title` 两个工具。
 
+## Preview / 界面预览
+
+| Global Pinned & Agent Tools | Modular Settings Modal | Inline Search & 7-Color Labels |
+| --- | --- | --- |
+| ![Global Pinned & Agent Tools](https://raw.githubusercontent.com/fengguanghuai/dsh-workspace-tools/main/assets/preview-sidebar-pin.png) | ![Modular Settings Modal](https://raw.githubusercontent.com/fengguanghuai/dsh-workspace-tools/main/assets/preview-settings-modal.png) | ![Inline Search & 7-Color Labels](https://raw.githubusercontent.com/fengguanghuai/dsh-workspace-tools/main/assets/preview-labels-and-search.png) |
+
 ## Sidebar & Pin Enhancements / 左侧栏增强（均可独立开关）
 
 Click the sliders icon on the **Pinned** (or **Workspaces**) header to open the settings modal and toggle any feature independently:
